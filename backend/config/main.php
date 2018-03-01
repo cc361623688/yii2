@@ -15,8 +15,18 @@ return [
     'modules' => [],
     'components' => [
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\AdminModel',
             'enableAutoLogin' => true,
+        ],
+        'i18n'=>['translations'=>[
+            '*'=>[
+                'class'=>'yii\i18n\PhpMessageSource',
+                //'basePtah'=>'/messages',
+                'fileMap'=>[
+                    'common'=>'common.php'
+                ]
+            ]
+           ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
