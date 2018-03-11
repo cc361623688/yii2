@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\controllers\base\BaseController;
 use Yii;
 use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -9,14 +10,14 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\Session;
 
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     /**
      * @inheritdoc
@@ -88,6 +89,14 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $session = Yii::$app->session;
+            $backUrl = $session->get('back_url');
+
+            if($backUrl){
+               $this->redirect(array($backUrl));
+               $session->remove('back_url');
+               return;
+            }
             return $this->goBack();
         } else {
             return $this->render('login', [

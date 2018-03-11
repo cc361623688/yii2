@@ -34,24 +34,35 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
+    $leftMenuItems = [
         ['label' => Yii::t('common','Home'), 'url' => ['/site/index']],
-        ['label' => Yii::t('common','About'), 'url' => ['/site/about']],
-        ['label' => Yii::t('common','Contact'), 'url' => ['/site/contact']],
+        ['label' => Yii::t('common','Post'), 'url' => ['/post/index']],
+        //['label' => Yii::t('common','Contact'), 'url' => ['/site/contact']],
     ];
+    $rightMenuItems[] = ['label' => Yii::t('common','Publish').Yii::t('common','Post'), 'url' => ['/post/create']];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => Yii::t('common','Signup'), 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => Yii::t('common','Login'), 'url' => ['/site/login']];
+        $rightMenuItems[] = ['label' => Yii::t('common','Signup'), 'url' => ['/site/signup']];
+        $rightMenuItems[] = ['label' => Yii::t('common','Login'), 'url' => ['/site/login']];
     } else {
-        $menuItems[] = [
-            'label' => Yii::t('common','Logout').' (' . Yii::$app->user->identity->username . ')',
-            'url' => ['/site/logout'],
-            'linkOptions' => ['data-method' => 'post']
+        $rightMenuItems[] = [
+            'label' => '<img src="'.Yii::$app->params['avatar']['small-image'].'" alt="'.Yii::$app->user->identity->username.'">',
+            'linkOptions' => ['class' => 'avatar-image'],
+            'items'=>[
+                ['label'=>'<i class="fa fa-sign-out"></i>'.Yii::t('common','Logout'),'url'=>'/site/logout','linkOptions' => ['data-method' => 'post']],
+                ['label'=>'<i class="fa fa-user"></i>'.Yii::t('common','Personal center'),'url'=>'','linkOptions' => ['data-method' => 'post']]
+            ]
         ];
     }
+
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-left'],
+        'items' => $leftMenuItems,
+    ]);
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
+        'encodeLabels'=>false,
+        'items' => $rightMenuItems,
     ]);
     NavBar::end();
     ?>

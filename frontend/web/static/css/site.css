@@ -89,3 +89,14 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+.navbar-nav > li > a.avatar-image{
+    padding:6px 0;
+}
+.avatar-image img{
+    height:40px;
+}
+.box-title{
+    color:#333;
+    font-size:18px;
+    font-weight: bold;
+}
