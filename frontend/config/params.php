@@ -1,8 +1,9 @@
 <?php
 return [
     'adminEmail' => 'admin@example.com',
+    'upload_url'=>'/../',
     'avatar'=>[
-        'small-image'=>'/static/images/avatar/small-image.jpg',
-        'small'=>'/static/images/avatar/small.jpg',
+        'small-image'=>'/statics/images/avatar/small-image.jpg',
+        'small'=>'/statics/images/avatar/small.jpg',
     ],
 ];

@@ -12,12 +12,12 @@ use common\models\base\BaseModel;
  * @property string $title
  * @property string $summary
  * @property string $content
- * @property string $label_image
- * @property integer $category_id
+ * @property string $label_img
+ * @property integer $cat_id
  * @property integer $user_id
  * @property string $user_name
  * @property integer $is_avtive
- * @property integer $cerated_at
+ * @property integer $created_at
  * @property integer $updated_at
  *
  * @property Category $category
@@ -25,6 +25,8 @@ use common\models\base\BaseModel;
  */
 class PostModel extends BaseModel
 {
+
+    const IS_VALID = 1;
     /**
      * @inheritdoc
      */
@@ -40,8 +42,8 @@ class PostModel extends BaseModel
     {
         return [
             [['content'], 'string'],
-            [['category_id', 'user_id', 'is_avtive', 'cerated_at', 'updated_at'], 'integer'],
-            [['title', 'summary', 'label_image', 'user_name'], 'string', 'max' => 255]
+            [['cat_id', 'user_id', 'is_valid', 'created_at', 'updated_at'], 'integer'],
+            [['title', 'summary', 'label_img', 'user_name'], 'string', 'max' => 255]
         ];
     }
 
@@ -55,12 +57,12 @@ class PostModel extends BaseModel
             'title' => 'Title',
             'summary' => 'Summary',
             'content' => 'Content',
-            'label_image' => 'Label Image',
-            'category_id' => 'Category ID',
+            'label_img' => 'Label Image',
+            'cat_id' => 'Category ID',
             'user_id' => 'User ID',
             'user_name' => 'User Name',
             'is_avtive' => 'Is Avtive',
-            'cerated_at' => 'Cerated At',
+            'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
     }
@@ -70,8 +72,8 @@ class PostModel extends BaseModel
      */
     public function getCategory()
     {
-        return $this->hasOne(Category::className(), ['id' => 'category_id']);
-    }
+        return $this->hasOne(Category::className(), ['id' => 'cat_id']);
+     }
 
     /**
      * @return \yii\db\ActiveQuery
@@ -80,4 +82,17 @@ class PostModel extends BaseModel
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+    public function getRelate()
+    {
+        return $this->hasMany(RelationPostTagsModel::className(),['post_id'=>'id']);
+    }
+    public function getExtend()
+    {
+        return $this->hasOne(PostExtendsModel::className(),['post_id'=>'id']);
+    }
+    public function getCat()
+    {
+        return $this->hasOne(CatModel::className(),['id'=>'cat_id']);
+    }
+
 }

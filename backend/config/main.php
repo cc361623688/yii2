@@ -18,6 +18,12 @@ return [
             'identityClass' => 'common\models\AdminModel',
             'enableAutoLogin' => true,
         ],
+        'urlManager'=>[
+            'showScriptName'=>false,
+            'enablePrettyUrl'=>true,
+            'rules'=>[],
+            //'suffix'=>'.html',
+        ],
         'i18n'=>['translations'=>[
             '*'=>[
                 'class'=>'yii\i18n\PhpMessageSource',

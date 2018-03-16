@@ -1,53 +1,37 @@
 <?php
+use yii\base\Widget;
+use frontend\widgets\banner\BannerWidget;
+use frontend\widgets\post\PostWidget;
+use frontend\widgets\chat\ChatWidget;
+use frontend\widgets\hot\HotWidget;
 
-/* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
+$this->title = '博客-首页';
+$items = [
+    ['label'=>'demo1','img_url'=>'/statics/images/banner/b-1.jpg','url'=>['site/index'],'html'=>'图片1','active'=>'active'],
+    ['label'=>'demo2','img_url'=>'/statics/images/banner/b-2.jpg','url'=>['site/index'],'html'=>'图片2','active'=>''],
+    ['label'=>'demo3','img_url'=>'/statics/images/banner/b-3.jpg','url'=>['site/index'],'html'=>'图片3','active'=>''],
+    ['label'=>'demo4','img_url'=>'/statics/images/banner/b-4.jpg','url'=>['site/index'],'html'=>'图片4','active'=>''],
+    ['label'=>'demo5','img_url'=>'/statics/images/banner/b-5.jpg','url'=>['site/index'],'html'=>'图片5','active'=>''],
+];
 ?>
-<div class="site-index">
+<div class="row">
+    <div class="col-lg-9">
+        <!--    图片轮播    -->
+        <?=BannerWidget::widget(
+              //  ['items'=>$items]
+        ); ?>
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <!--   文章列表     -->
+        <?=PostWidget::widget() ?>
     </div>
+    <div class="col-lg-3">
+        <!--    留言板   -->
+       <?=ChatWidget::widget() ?>
 
-    <div class="body-content">
+        <!--    热门浏览   -->
+        <?=HotWidget::widget() ?>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
+        <!--    标签云    -->
+        <?=\frontend\widgets\tag\TagWidget::widget()  ?>
     </div>
 </div>

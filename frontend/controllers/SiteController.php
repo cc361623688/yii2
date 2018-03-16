@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use frontend\controllers\base\BaseController;
+use frontend\models\FeedForm;
 use Yii;
 use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -218,5 +219,18 @@ class SiteController extends BaseController
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+    public function actionAddFeed()
+    {
+        $model = new FeedForm();
+
+        $model->content = Yii::$app->request->post('content');
+
+        if($model->validate()){
+           if($model->create()){
+               return json_encode(['status'=>true]);
+           }
+        }
+        return json_encode(['status'=>false,'msg'=>'发布失败！']);
     }
 }

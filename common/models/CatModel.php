@@ -29,7 +29,7 @@ class CatModel extends BaseModel
     public function rules()
     {
         return [
-            [['category_name'], 'string', 'max' => 255]
+            [['cat_name'], 'string', 'max' => 255]
         ];
     }
 
@@ -40,7 +40,7 @@ class CatModel extends BaseModel
     {
         return [
             'id' => 'ID',
-            'category_name' => 'Category Name',
+            'cat_name' => 'Category Name',
         ];
     }
 
@@ -57,8 +57,7 @@ class CatModel extends BaseModel
         //default category
         $cats[0] = Yii::t('common', 'No Category');
         $res = self::find()->asArray()->all();
-//        echo "<pre>";
-//        print_r($res);die();
+
         if (count($res)) {
             foreach ($res as $key => $row) {
                 $cats[$row['id']] = $row['cat_name'];
