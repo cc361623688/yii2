@@ -39,8 +39,8 @@ class CatModel extends BaseModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'cat_name' => 'Category Name',
+            'id' => Yii::t('common','Id'),
+            'cat_name' => Yii::t('common','Category Name'),
         ];
     }
 

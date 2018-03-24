@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\TagModel */
 
-$this->title = 'Create Tag Model';
+$this->title = Yii::t('common','Create');
 $this->params['breadcrumbs'][] = ['label' => 'Tag Models', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

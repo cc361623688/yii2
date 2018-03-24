@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\PostModel */
 
-$this->title = 'Create Post Model';
-$this->params['breadcrumbs'][] = ['label' => 'Post Models', 'url' => ['index']];
+$this->title = Yii::t('common','Create').Yii::t('common','Post');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('common','Post'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="post-model-create">

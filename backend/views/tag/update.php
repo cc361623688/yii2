@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\TagModel */
 
-$this->title = 'Update Tag Model: ' . ' ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Tag Models', 'url' => ['index']];
+$this->title = Yii::t('common','Update').Yii::t('common','Tag').Yii::t('common','Id').' : ' . ' ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' =>Yii::t('common','Tag'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Yii::t('common','Update');
 ?>
 <div class="tag-model-update">
 

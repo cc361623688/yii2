@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = '博客管理系统后台';
+$this->title = Yii::t('common','Blog management system backstage');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

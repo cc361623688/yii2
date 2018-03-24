@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\CatModel */
 
-$this->title = 'Create Cat Model';
-$this->params['breadcrumbs'][] = ['label' => 'Cat Models', 'url' => ['index']];
+$this->title = Yii::t('common','Create').Yii::t('common','Category');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('common','Category'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cat-model-create">

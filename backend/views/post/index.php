@@ -7,7 +7,7 @@ use yii\helpers\Url;
 /* @var $searchModel common\models\PostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Post Models';
+$this->title = Yii::t('common','Post');
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Post Model', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('common','Create').Yii::t('common','Post'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

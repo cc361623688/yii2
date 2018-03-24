@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\CatSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cat Models';
+$this->title = Yii::t('common','Category');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cat-model-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Cat Model', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('common','Create').Yii::t('common','Category'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

@@ -19,29 +19,38 @@ class SidebarWidget extends Menu
     public function init()
     {
         $this->items = [
-            ['label' =>'<i class="fa fa-dashboard"></i><span>仪表盘</span>','url'=>['site/index']],
-            ['label' =>'<a href=""><i class="fa fa-th-list"></i><span>内容管理</span></a>','options'=>['class'=>'nav-parent'],'items'=>[
-                ['label'=>'文章管理','url'=>['post/index'],'items'=>[
-                    ['label'=>'创建文章','url'=>['post/create'],'visible'=>false],
-                    ['label'=>'更新文章','url'=>['post/update'],'visible'=>false],
+            ['label' =>'<i class="fa fa-dashboard"></i><span>'.Yii::t('common','Dashboard').'</span>','url'=>['site/index']],
+            ['label' =>'<a href=""><i class="fa fa-th-list"></i><span>'.Yii::t('common','Content management').'</span></a>','options'=>['class'=>'nav-parent'],'items'=>[
+                ['label'=>Yii::t('common','Post').Yii::t('common','Management'),'url'=>['post/index'],
+                    'items'=>[
+                        ['label'=>Yii::t('common','Create').Yii::t('common','Post'),'url'=>['post/create'],'visible'=>false],
+                        ['label'=>Yii::t('common','Update').Yii::t('common','Post'),'url'=>['post/update'],'visible'=>false],
+                        ['label'=>Yii::t('common','Post').Yii::t('common','Detail'),'url'=>['post/view'],'visible'=>false],
+                    ]
+                ],
+                ['label'=>Yii::t('common','Category').Yii::t('common','Management'),'url'=>['cat/index'],'items'=>[
+                    ['label'=>Yii::t('common','Create').Yii::t('common','Category'),'url'=>['cat/create'],'visible'=>false],
+                    ['label'=>Yii::t('common','Update').Yii::t('common','Category'),'url'=>['cat/update'],'visible'=>false],
+                    ['label'=>Yii::t('common','Category').Yii::t('common','Detail'),'url'=>['cat/view'],'visible'=>false],
                 ]
                 ],
-                ['label'=>'分类管理','url'=>['cat/index'],'items'=>[
-                    ['label'=>'创建文章','url'=>['cat/create'],'visible'=>false],
-                    ['label'=>'更新文章','url'=>['cat/update'],'visible'=>false],
-                ]
+                ['label'=>Yii::t('common','Tag').Yii::t('common','Management'),'url'=>['tag/index'],'items'=>[
+                    ['label'=>Yii::t('common','Create').Yii::t('common','Tag'),'url'=>['tag/create'],'visible'=>false],
+                    ['label'=>Yii::t('common','Update').Yii::t('common','Tag'),'url'=>['tag/update'],'visible'=>false],
+                    ['label'=>Yii::t('common','Tag').Yii::t('common','Detail'),'url'=>['tag/view'],'visible'=>false],
+                    ]
                 ],
-                ['label'=>'标签管理','url'=>['tag/index']],
             ]
             ],
-            ['label' =>'<a href=""><i class="fa fa-user"></i><span>会员管理</span></a>','options'=>['class'=>'nav-parent'],'items'=>[
-                ['label'=>'会员信息','url'=>['user/index'],
+            ['label' =>'<a href=""><i class="fa fa-user"></i><span>'.Yii::t('common','Member').Yii::t('common','Management').'</span></a>','options'=>['class'=>'nav-parent'],
                 'items'=>[
-                     ['label'=>'更新会员','url'=>['user/update'],'visible'=>false],
-                     ['label'=>'会员详情','url'=>['user/view'],'visible'=>false],
-                   ]
-                ],
-            ]
+                    ['label'=>Yii::t('common','Member').Yii::t('common','Information'),'url'=>['user/index'],
+                    'items'=>[
+                         ['label'=>Yii::t('common','Update').Yii::t('common','Member'),'url'=>['user/update'],'visible'=>false],
+                         ['label'=>Yii::t('common','Member').Yii::t('common','Detail'),'url'=>['user/view'],'visible'=>false],
+                       ]
+                    ],
+                ]
             ],
         ];
     }

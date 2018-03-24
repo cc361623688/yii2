@@ -21,7 +21,6 @@ class TagModel extends BaseModel
     {
         return 'tags';
     }
-
     /**
      * @inheritdoc
      */
@@ -39,9 +38,9 @@ class TagModel extends BaseModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'tag_name' => 'Tag Name',
-            'post_num' => 'Post Num',
+            'id' => Yii::t('common','Id'),
+            'tag_name' => Yii::t('common','Tag').Yii::t('common','Name'),
+            'post_num' => Yii::t('common','Post').Yii::t('common','Number'),
         ];
     }
 }

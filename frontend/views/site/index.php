@@ -5,13 +5,13 @@ use frontend\widgets\post\PostWidget;
 use frontend\widgets\chat\ChatWidget;
 use frontend\widgets\hot\HotWidget;
 
-$this->title = '博客-首页';
+$this->title = Yii::t('common','Blog').'-'.Yii::t('common','Home');
 $items = [
-    ['label'=>'demo1','img_url'=>'/statics/images/banner/b-1.jpg','url'=>['site/index'],'html'=>'图片1','active'=>'active'],
-    ['label'=>'demo2','img_url'=>'/statics/images/banner/b-2.jpg','url'=>['site/index'],'html'=>'图片2','active'=>''],
-    ['label'=>'demo3','img_url'=>'/statics/images/banner/b-3.jpg','url'=>['site/index'],'html'=>'图片3','active'=>''],
-    ['label'=>'demo4','img_url'=>'/statics/images/banner/b-4.jpg','url'=>['site/index'],'html'=>'图片4','active'=>''],
-    ['label'=>'demo5','img_url'=>'/statics/images/banner/b-5.jpg','url'=>['site/index'],'html'=>'图片5','active'=>''],
+    ['label'=>'demo1','img_url'=>'/statics/images/banner/b-1.jpg','url'=>['site/index'],'html'=>'picture1','active'=>'active'],
+    ['label'=>'demo2','img_url'=>'/statics/images/banner/b-2.jpg','url'=>['site/index'],'html'=>'picture2','active'=>''],
+    ['label'=>'demo3','img_url'=>'/statics/images/banner/b-3.jpg','url'=>['site/index'],'html'=>'picture3','active'=>''],
+    ['label'=>'demo4','img_url'=>'/statics/images/banner/b-4.jpg','url'=>['site/index'],'html'=>'picture4','active'=>''],
+    ['label'=>'demo5','img_url'=>'/statics/images/banner/b-5.jpg','url'=>['site/index'],'html'=>'picture5','active'=>''],
 ];
 ?>
 <div class="row">
