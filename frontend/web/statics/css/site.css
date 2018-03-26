@@ -190,16 +190,14 @@ a.desc:after {
 .font-12 {
     font-size: 12px;
 }
-/*.post-index-myCarousel{*/
-    /*width:160px;*/
-    /*margin: 20px auto;*/
-/*}*/
-/*.post-index-myCarousel .carousel-indicators{*/
-    /*bottom: -8px;*/
-/*}*/
-/*.post-index-myCarousel .carousel-caption{*/
-    /*padding: 2px;*/
-/*}*/
+.post-index-myCarousel{
+    width:85%;
+    margin: 0 auto;
+    height: 405px;
+}
+.post-index-myCarousel .carousel-inner{
+    height:inherit;
+}
 
 .border-bottom {
     border-bottom: 1px solid #ccc;

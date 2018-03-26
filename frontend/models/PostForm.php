@@ -96,7 +96,7 @@ class PostForm extends Model{
               $postModel->user_id = Yii::$app->user->identity->id;
               $postModel->user_name= Yii::$app->user->identity->username;
 
-              $postModel->is_avtive = 1;
+              $postModel->is_valid = 1;
 
               $postModel->created_at = time();
               $postModel->updated_at = time();

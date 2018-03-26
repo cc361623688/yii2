@@ -16,7 +16,7 @@ use common\models\base\BaseModel;
  * @property integer $cat_id
  * @property integer $user_id
  * @property string $user_name
- * @property integer $is_avtive
+ * @property integer $is_valid
  * @property integer $created_at
  * @property integer $updated_at
  *

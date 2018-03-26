@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Url;
 ?>
-<div class="panel">
+<div class="panel" style="-webkit-box-shadow:none;box-shadow:none;margin-top: 20px;">
     <div id="myCarousel" class="carousel slide post-index-myCarousel">
         <!-- 轮播（Carousel）指标 -->
         <ol class="carousel-indicators">

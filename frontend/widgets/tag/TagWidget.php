@@ -18,7 +18,7 @@ class TagWidget extends Widget{
              ->all();
 
         $data['title'] = $this->title ? : '标签云';
-        $data['body'] = $res ?: $data;
+        $data['body'] = $res ? :$data;
 
         return $this->render('index',['data'=>$data]);
     }

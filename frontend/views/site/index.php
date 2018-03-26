@@ -7,18 +7,24 @@ use frontend\widgets\hot\HotWidget;
 
 $this->title = Yii::t('common','Blog').'-'.Yii::t('common','Home');
 $items = [
-    ['label'=>'demo1','img_url'=>'/statics/images/banner/b-1.jpg','url'=>['site/index'],'html'=>'picture1','active'=>'active'],
-    ['label'=>'demo2','img_url'=>'/statics/images/banner/b-2.jpg','url'=>['site/index'],'html'=>'picture2','active'=>''],
-    ['label'=>'demo3','img_url'=>'/statics/images/banner/b-3.jpg','url'=>['site/index'],'html'=>'picture3','active'=>''],
-    ['label'=>'demo4','img_url'=>'/statics/images/banner/b-4.jpg','url'=>['site/index'],'html'=>'picture4','active'=>''],
-    ['label'=>'demo5','img_url'=>'/statics/images/banner/b-5.jpg','url'=>['site/index'],'html'=>'picture5','active'=>''],
+//    ['label'=>'demo1','img_url'=>'/statics/images/banner/b-1.jpg','url'=>['site/index'],'html'=>'picture1','active'=>'active'],
+//    ['label'=>'demo2','img_url'=>'/statics/images/banner/b-2.jpg','url'=>['site/index'],'html'=>'picture2','active'=>''],
+//    ['label'=>'demo3','img_url'=>'/statics/images/banner/b-3.jpg','url'=>['site/index'],'html'=>'picture3','active'=>''],
+//    ['label'=>'demo4','img_url'=>'/statics/images/banner/b-4.jpg','url'=>['site/index'],'html'=>'picture4','active'=>''],
+//    ['label'=>'demo5','img_url'=>'/statics/images/banner/b-5.jpg','url'=>['site/index'],'html'=>'picture5','active'=>''],
+    ['label'=>'demo1','img_url'=>'/statics/images/banner/WechatIMG39385_meitu_1.jpg','url'=>['site/index'],'html'=>'picture5','active'=>'active'],
+    ['label'=>'demo2','img_url'=>'/statics/images/banner/title-1.gif','url'=>['site/index'],'html'=>'picture5','active'=>''],
+    ['label'=>'demo3','img_url'=>'/statics/images/banner/ca-1.jpg','url'=>['site/index'],'html'=>'picture5','active'=>''],
+    ['label'=>'demo4','img_url'=>'/statics/images/banner/lining3.jpg','url'=>['site/index'],'html'=>'picture5','active'=>''],
+    ['label'=>'demo5','img_url'=>'/statics/images/banner/HLA-3.jpg','url'=>['site/index'],'html'=>'picture5','active'=>''],
+    ['label'=>'demo6','img_url'=>'/statics/images/banner/DSC09415.jpg','url'=>['site/index'],'html'=>'picture5','active'=>''],
 ];
 ?>
 <div class="row">
     <div class="col-lg-9">
         <!--    图片轮播    -->
         <?=BannerWidget::widget(
-              //  ['items'=>$items]
+                ['items'=>$items]
         ); ?>
 
         <!--   文章列表     -->
