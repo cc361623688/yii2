@@ -13,7 +13,7 @@ class PostWidget extends Widget{
     //post list title
     public $title = '';
     //display number of list
-    public $limit = 6;
+    public $limit = 1;
     //whether display more post
     public $more = true;
     //是否显示分页
@@ -23,10 +23,14 @@ class PostWidget extends Widget{
     public function run()
     {
         $curPage = Yii::$app->request->get('page',1);
-
+        $tag = Yii::$app->request->get('tag',null);
+        $search = [
+            'tag_name'=>['condition'=>'=','value'=>$tag],
+        ];
         //查询条件
         $condition = ['=','is_valid',PostModel::IS_VALID];
-        $res = PostForm::getList($condition,$curPage,$this->limit);
+
+        $res = PostForm::getList($condition,$curPage,$this->limit,null,$search);
 
         //var_dump($res);die();
 

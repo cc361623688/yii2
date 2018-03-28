@@ -6,7 +6,7 @@ use frontend\widgets\chat\ChatWidget;
 ?>
 <div class="row">
     <div class="col-lg-9">
-        <?=PostWidget::widget(['limit'=>2,'page'=>true]) ?>
+        <?=PostWidget::widget(['limit'=>3,'page'=>true]) ?>
     </div>
 
 

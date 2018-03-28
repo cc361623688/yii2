@@ -164,7 +164,7 @@ class PostForm extends Model{
 
       }
       //获取文章列表
-      public static function getList($cond,$curPage=1,$pageSize = 5,$orderBy = ['id'=>SORT_DESC]){
+      public static function getList($cond,$curPage=1,$pageSize = 2,$orderBy = ['id'=>SORT_DESC],$search){
           $postModel = new PostModel();
           $select = ['id','title','summary','label_img','cat_id','user_id','user_name','is_valid','created_at','updated_at'];
           $query = $postModel->find()
@@ -173,7 +173,7 @@ class PostForm extends Model{
               ->with('relate.tag','extend')
               ->orderBy($orderBy);
           //获取分页数据
-          $res = $postModel->getPages($query,$curPage,$pageSize);
+          $res = $postModel->getPages($query,$curPage,$pageSize,$search);
           //格式化数据
           $res['data'] = self::_formateList( $res['data'] );
 

@@ -14,6 +14,7 @@ class BaseModel extends \yii\db\ActiveRecord{
         if($search){
            $query = $query->andFilterWhere($search);
         }
+
         $data['count'] = $query->count();
         if(!$data['count']){
             return ['count'=>0,'curPage'=>$curPage,'pageSize'=>$pageSize,

@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use common\models\base\BaseModel;
+use yii\db\Query;
 
 /**
  * This is the model class for table "posts".
@@ -95,4 +96,22 @@ class PostModel extends BaseModel
         return $this->hasOne(CatModel::className(),['id'=>'cat_id']);
     }
 
+    public function getPages($query,$curPage=1,$pageSize=10,$search = null){
+        if(isset($search['tag_name']) && $search['tag_name']){
+            $result  = (new Query())->select('e.post_id,e.tag_id,t.id,t.tag_name')
+                ->from(['e'=>RelationPostTagsModel::tableName()])
+                ->join('LEFT JOIN',['t'=>TagModel::tableName()],'e.tag_id = t.id')
+                ->where('t.tag_name '.$search['tag_name']['condition'].'"'.$search['tag_name']['value'].'"')
+                ->groupBy('e.post_id')
+                ->all();
+            $postIds = null;
+            if($result){
+                foreach ($result as $row){
+                    $postIds[]= $row['post_id'];
+                }
+            }
+            $newsearch = count($postIds) ? array('id'=>$postIds) : null;
+            return parent::getPages($query,$curPage,$pageSize,$newsearch);
+        }
+    }
 }
